@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#101522"/>
+      <stop offset="58%" stop-color="#121c2e"/>
+      <stop offset="100%" stop-color="#0d1727"/>
+    </linearGradient>
+    <linearGradient id="mix" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#28d7d0"/>
+      <stop offset="50%" stop-color="#f4b942"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#050914" flood-opacity="0.42"/>
+    </filter>
+    <marker id="arrow-cyan" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#28d7d0"/>
+    </marker>
+    <marker id="arrow-gold" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f4b942"/>
+    </marker>
+    <marker id="arrow-coral" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#fb7185"/>
+    </marker>
+    <style>
+      .title { font: 700 34px Inter, ui-sans-serif, system-ui, sans-serif; fill: #ecf2ff; }
+      .subtitle { font: 500 17px Inter, ui-sans-serif, system-ui, sans-serif; fill: #a9b5c9; }
+      .label { font: 700 18px Inter, ui-sans-serif, system-ui, sans-serif; fill: #ecf2ff; }
+      .small { font: 600 14px Inter, ui-sans-serif, system-ui, sans-serif; fill: #a9b5c9; }
+      .tiny { font: 600 12px Inter, ui-sans-serif, system-ui, sans-serif; fill: #a9b5c9; }
+      .mono { font: 700 13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #ecf2ff; }
+      .panel { fill: #162033; stroke: #2a3a59; stroke-width: 1.4; filter: url(#shadow); }
+      .panel2 { fill: #1b283f; stroke: #34476a; stroke-width: 1.1; }
+      .wire { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1280" height="640" fill="url(#bg)"/>
+
+  <title>Mask U-Net architecture for vocal source separation</title>
+  <text x="56" y="66" class="title">Mask U-Net: spectrogram in, vocal estimate out</text>
+  <text x="56" y="98" class="subtitle">Six stride-2 encoder blocks compress the normalized mixture magnitude; decoder blocks rebuild detail with skip connections.</text>
+
+  <rect x="46" y="146" width="100" height="340" rx="14" class="panel"/>
+  <text x="96" y="296" text-anchor="middle" class="label">Mix</text>
+  <text x="96" y="323" text-anchor="middle" class="tiny">1 x 512 x 128</text>
+
+  
+  <rect x="112" y="166" width="88" height="300" rx="10" fill="#172235" stroke="#28d7d0" stroke-width="2"/>
+  <text x="156.0" y="312.0" text-anchor="middle" class="label">E1</text>
+  <text x="156.0" y="338.0" text-anchor="middle" class="tiny">16 ch</text>
+  <rect x="236" y="196" width="84" height="240" rx="10" fill="#172235" stroke="#28d7d0" stroke-width="2"/>
+  <text x="278.0" y="312.0" text-anchor="middle" class="label">E2</text>
+  <text x="278.0" y="338.0" text-anchor="middle" class="tiny">32 ch</text>
+  <rect x="360" y="226" width="80" height="180" rx="10" fill="#172235" stroke="#60a5fa" stroke-width="2"/>
+  <text x="400.0" y="312.0" text-anchor="middle" class="label">E3</text>
+  <text x="400.0" y="338.0" text-anchor="middle" class="tiny">64 ch</text>
+  <rect x="484" y="256" width="76" height="120" rx="10" fill="#172235" stroke="#60a5fa" stroke-width="2"/>
+  <text x="522.0" y="312.0" text-anchor="middle" class="label">E4</text>
+  <text x="522.0" y="338.0" text-anchor="middle" class="tiny">128 ch</text>
+  <rect x="608" y="286" width="72" height="60" rx="10" fill="#172235" stroke="#b794f4" stroke-width="2"/>
+  <text x="644.0" y="312.0" text-anchor="middle" class="label">E5</text>
+  <text x="644.0" y="338.0" text-anchor="middle" class="tiny">256 ch</text>
+  <rect x="730" y="304" width="68" height="24" rx="10" fill="#172235" stroke="#b794f4" stroke-width="2"/>
+  <text x="764.0" y="312.0" text-anchor="middle" class="label">B</text>
+  <text x="764.0" y="338.0" text-anchor="middle" class="tiny">512 ch</text>
+  <rect x="850" y="286" width="72" height="60" rx="10" fill="#172235" stroke="#f4b942" stroke-width="2"/>
+  <text x="886.0" y="312.0" text-anchor="middle" class="label">D5</text>
+  <text x="886.0" y="338.0" text-anchor="middle" class="tiny">256 ch</text>
+  <rect x="966" y="256" width="76" height="120" rx="10" fill="#172235" stroke="#f4b942" stroke-width="2"/>
+  <text x="1004.0" y="312.0" text-anchor="middle" class="label">D4</text>
+  <text x="1004.0" y="338.0" text-anchor="middle" class="tiny">128 ch</text>
+  <rect x="1076" y="226" width="80" height="180" rx="10" fill="#172235" stroke="#fb7185" stroke-width="2"/>
+  <text x="1116.0" y="312.0" text-anchor="middle" class="label">D3</text>
+  <text x="1116.0" y="338.0" text-anchor="middle" class="tiny">64 ch</text>
+  <rect x="1182" y="196" width="84" height="240" rx="10" fill="#172235" stroke="#fb7185" stroke-width="2"/>
+  <text x="1224.0" y="312.0" text-anchor="middle" class="label">D2</text>
+  <text x="1224.0" y="338.0" text-anchor="middle" class="tiny">32 ch</text>
+  <path d="M 200 316 L 236 316" class="wire" stroke="#a9b5c9" stroke-width="2.4" marker-end="url(#arrow-cyan)"/><path d="M 320 316 L 360 316" class="wire" stroke="#a9b5c9" stroke-width="2.4" marker-end="url(#arrow-cyan)"/><path d="M 440 316 L 484 316" class="wire" stroke="#a9b5c9" stroke-width="2.4" marker-end="url(#arrow-cyan)"/><path d="M 560 316 L 608 316" class="wire" stroke="#a9b5c9" stroke-width="2.4" marker-end="url(#arrow-cyan)"/><path d="M 680 316 L 730 316" class="wire" stroke="#a9b5c9" stroke-width="2.4" marker-end="url(#arrow-cyan)"/><path d="M 798 316 L 850 316" class="wire" stroke="#a9b5c9" stroke-width="2.4" marker-end="url(#arrow-cyan)"/><path d="M 922 316 L 966 316" class="wire" stroke="#a9b5c9" stroke-width="2.4" marker-end="url(#arrow-cyan)"/><path d="M 1042 316 L 1076 316" class="wire" stroke="#a9b5c9" stroke-width="2.4" marker-end="url(#arrow-cyan)"/><path d="M 1156 316 L 1182 316" class="wire" stroke="#a9b5c9" stroke-width="2.4" marker-end="url(#arrow-cyan)"/>
+  <path d="M 156 170 C 156 96, 1224 96, 1224 206" class="wire" stroke="#fb7185" stroke-width="2.2" stroke-dasharray="8 8" opacity="0.85"/><path d="M 278 170 C 278 96, 1116 96, 1116 206" class="wire" stroke="#fb7185" stroke-width="2.2" stroke-dasharray="8 8" opacity="0.85"/><path d="M 400 170 C 400 96, 1004 96, 1004 206" class="wire" stroke="#f4b942" stroke-width="2.2" stroke-dasharray="8 8" opacity="0.85"/><path d="M 522 170 C 522 96, 888 96, 888 206" class="wire" stroke="#f4b942" stroke-width="2.2" stroke-dasharray="8 8" opacity="0.85"/><path d="M 644 170 C 644 96, 888 96, 888 206" class="wire" stroke="#b794f4" stroke-width="2.2" stroke-dasharray="8 8" opacity="0.85"/>
+
+  <rect x="1028" y="492" width="184" height="62" rx="14" fill="#241725" stroke="#fb7185" stroke-width="2"/>
+  <text x="1120" y="518" text-anchor="middle" class="label">Sigmoid mask</text>
+  <text x="1120" y="541" text-anchor="middle" class="tiny">multiplied by mix</text>
+  <path d="M 1224 436 C 1224 474, 1138 472, 1120 492" class="wire" stroke="#fb7185" stroke-width="2.4" marker-end="url(#arrow-coral)"/>
+
+  <rect x="56" y="520" width="438" height="54" rx="14" fill="#101b2d" stroke="#2b3b59"/>
+  <text x="78" y="553" class="small">Conv/deconv: kernel 5x5, stride 2; LeakyReLU down, ReLU up.</text>
+  <rect x="536" y="520" width="342" height="54" rx="14" fill="#101b2d" stroke="#2b3b59"/>
+  <text x="558" y="553" class="small">Dropout is used in the first three decoder layers.</text>
+  <rect x="920" y="520" width="292" height="54" rx="14" fill="#101b2d" stroke="#2b3b59"/>
+  <text x="942" y="553" class="small">Output is a vocal magnitude estimate.</text>
+
+</svg>

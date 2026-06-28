@@ -1,0 +1,52 @@
+# Training target — paper uses ~20k random windows
+num_samples: 20000
+
+# MUSDB tracks to include (null = all 150 tracks)
+num_tracks: null
+
+# RTX 3070 Ti Laptop (8 GB) — probed safe; do not exceed ~256 without OOM
+batch_size: 128
+epochs: 10000
+val_ratio: 0.1
+patience: 25
+min_delta: 0.1
+loss_scale: 100.0
+learning_rate: 0.001
+lr_scheduler: plateau
+lr_patience: 8
+lr_factor: 0.5
+min_lr: 0.000001
+amsgrad: true
+
+# Resume newest checkpoint from artifacts/runs
+resume: false
+eval_only: false
+
+# GPU-first pipeline: precompute spectrograms so the GPU is not waiting on CPU STFT
+dataset_mode: memmap
+auto_build_cache: true
+# Cache build — parallel tracks + GPU STFT (keep workers low to limit RAM)
+cache_workers: 2
+cache_use_gpu: true
+cache_stft_chunk_size: 512
+cache_window_batch: 32
+num_workers: 4
+pin_memory: true
+prefetch_factor: 2
+
+# Device — cuda | cpu | auto
+device: cuda
+channels_last: true
+compile_model: false
+
+# STFT / audio
+sample_rate: 8192
+n_fft: 1023
+hop_length: 768
+win_length: 1023
+n_frames: 128
+
+# Logging & checkpoints
+log_level: INFO
+log_audio_every: 10
+log_loss_every: 10

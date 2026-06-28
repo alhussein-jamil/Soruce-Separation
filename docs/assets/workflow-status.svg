@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#101522"/>
+      <stop offset="58%" stop-color="#121c2e"/>
+      <stop offset="100%" stop-color="#0d1727"/>
+    </linearGradient>
+    <linearGradient id="mix" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#28d7d0"/>
+      <stop offset="50%" stop-color="#f4b942"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#050914" flood-opacity="0.42"/>
+    </filter>
+    <marker id="arrow-cyan" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#28d7d0"/>
+    </marker>
+    <marker id="arrow-gold" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f4b942"/>
+    </marker>
+    <marker id="arrow-coral" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#fb7185"/>
+    </marker>
+    <style>
+      .title { font: 700 34px Inter, ui-sans-serif, system-ui, sans-serif; fill: #ecf2ff; }
+      .subtitle { font: 500 17px Inter, ui-sans-serif, system-ui, sans-serif; fill: #a9b5c9; }
+      .label { font: 700 18px Inter, ui-sans-serif, system-ui, sans-serif; fill: #ecf2ff; }
+      .small { font: 600 14px Inter, ui-sans-serif, system-ui, sans-serif; fill: #a9b5c9; }
+      .tiny { font: 600 12px Inter, ui-sans-serif, system-ui, sans-serif; fill: #a9b5c9; }
+      .mono { font: 700 13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #ecf2ff; }
+      .panel { fill: #162033; stroke: #2a3a59; stroke-width: 1.4; filter: url(#shadow); }
+      .panel2 { fill: #1b283f; stroke: #34476a; stroke-width: 1.1; }
+      .wire { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1280" height="640" fill="url(#bg)"/>
+
+  <title>Repository workflow and implementation status</title>
+  <text x="56" y="66" class="title">Repository workflow and status</text>
+  <text x="56" y="98" class="subtitle">The current code is a reproducible MUSDB18-oriented implementation, with low-memory and precomputed-data paths.</text>
+
+  
+  <rect x="64" y="166" width="256" height="90" rx="12" class="panel2"/>
+  <rect x="64" y="166" width="8" height="90" rx="4" fill="#28d7d0"/>
+  <text x="86" y="197" class="label">MUSDB18</text>
+  <text x="86" y="223" class="small">download or local data</text>
+  <rect x="384" y="166" width="256" height="90" rx="12" class="panel2"/>
+  <rect x="384" y="166" width="8" height="90" rx="4" fill="#60a5fa"/>
+  <text x="406" y="197" class="label">Sample index</text>
+  <text x="406" y="223" class="small">random 128-frame windows</text>
+  <rect x="704" y="166" width="256" height="90" rx="12" class="panel2"/>
+  <rect x="704" y="166" width="8" height="90" rx="4" fill="#f4b942"/>
+  <text x="726" y="197" class="label">Lazy dataset</text>
+  <text x="726" y="223" class="small">on-demand STFT + cache</text>
+  <rect x="384" y="340" width="256" height="90" rx="12" class="panel2"/>
+  <rect x="384" y="340" width="8" height="90" rx="4" fill="#7bd88f"/>
+  <text x="406" y="371" class="label">Memmap cache</text>
+  <text x="406" y="397" class="small">optional float16 arrays</text>
+  <rect x="704" y="340" width="256" height="90" rx="12" class="panel2"/>
+  <rect x="704" y="340" width="8" height="90" rx="4" fill="#fb7185"/>
+  <text x="726" y="371" class="label">Trainer</text>
+  <text x="726" y="397" class="small">AMP, Adam, early stop</text>
+  <rect x="1024" y="252" width="190" height="90" rx="12" class="panel2"/>
+  <rect x="1024" y="252" width="8" height="90" rx="4" fill="#b794f4"/>
+  <text x="1046" y="283" class="label">Artifacts</text>
+  <text x="1046" y="309" class="small">best.pt, plots, WAVs</text>
+  <path d="M 320 211 L 384 211" class="wire" stroke="#28d7d0" stroke-width="3" marker-end="url(#arrow-cyan)"/>
+  <path d="M 640 211 L 704 211" class="wire" stroke="#60a5fa" stroke-width="3" marker-end="url(#arrow-cyan)"/>
+  <path d="M 832 256 L 832 340" class="wire" stroke="#f4b942" stroke-width="3" marker-end="url(#arrow-gold)"/>
+  <path d="M 640 385 L 704 385" class="wire" stroke="#7bd88f" stroke-width="3" marker-end="url(#arrow-cyan)"/>
+  <path d="M 960 385 C 1002 385, 1002 297, 1024 297" class="wire" stroke="#fb7185" stroke-width="3" marker-end="url(#arrow-coral)"/>
+  <path d="M 960 211 C 1002 211, 1002 267, 1024 267" class="wire" stroke="#f4b942" stroke-width="3" marker-end="url(#arrow-gold)"/>
+
+  <rect x="70" y="504" width="336" height="66" rx="16" fill="#102431" stroke="#28d7d0" stroke-width="1.5"/>
+  <text x="96" y="532" class="label">Implemented</text>
+  <text x="96" y="556" class="small">package CLI, smoke tests, lazy and memmap datasets</text>
+
+  <rect x="472" y="504" width="336" height="66" rx="16" fill="#282017" stroke="#f4b942" stroke-width="1.5"/>
+  <text x="498" y="532" class="label">Paper-inspired</text>
+  <text x="498" y="556" class="small">U-Net masks, STFT patches, mixture-phase reconstruction</text>
+
+  <rect x="874" y="504" width="336" height="66" rx="16" fill="#2a1721" stroke="#fb7185" stroke-width="1.5"/>
+  <text x="900" y="532" class="label">Open validation</text>
+  <text x="900" y="556" class="small">full MUSDB metrics and pretrained checkpoint are not included</text>
+
+</svg>
